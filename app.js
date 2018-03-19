@@ -10,10 +10,6 @@ var users = require('./routes/users');
 var login = require('./routes/login');
 var register = require('./routes/register');
 
-var hbs = require('hbs');
-var hbsform = require('handlebars-form-helpers').register(hbs.handlebars);
-
-
 var app = express();
 
 // view engine setup
