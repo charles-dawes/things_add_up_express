@@ -27,7 +27,7 @@ $("#btnSubmit").on('click', function(e){
         $.post('https://thingsaddup.herokuapp.com/api/post/create/user', data, function(result){
           console.log(result.created);
           if (result.created === true){
-            toastr.options.onHidden = function(){window.location.href='http://localhost:3000';}
+            toastr.options.onHidden = function(){window.location.href='https://thingsaddup.herokuapp.com';}
             toastr.success("Your account has been created. Redirecting to Home page.", "Account Created!",{ timeOut: 3000, positionClass: 'toast-bottom-center'});
           } else {
             toastr.error("An error has occurred, please try again!", "Error", { timeOut: 3000, positionClass: 'toast-bottom-center'})
