@@ -1,30 +1,33 @@
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+        var obj = {};
+        var purchases;
+        if(!localStorage.purchases){
+          purchases = [];
+          localStorage.purchases = "";
+        } else {
+          purchases = $.parseJSON(localStorage.purchases);
+        }
+
+        $("#saveDataP").on("click", function() {
+          obj.user = "benji";
+          obj.amount = $("#amount").val();
+          obj.category = $("#category").val();
+          purchases.push(obj);
+          localStorage.purchases = JSON.stringify(purchases);
+          $("#object").text(JSON.stringify(purchases));
+        });
+
+  });
+</script>
 </head>
 <body>
-  <script>
-          var obj = {};
-          var purchases;
-          if(!localStorage.purchases){
-            purchases = [];
-            localStorage.purchases = "";
-          } else {
-            purchases = $.parseJSON(localStorage.purchases);
-          }
-
-          window.saveData = function() {
-            obj.user = "benji";
-            obj.amount = $("#amount").val();
-            obj.category = $("#category").val();
-            purchases.push(obj);
-            localStorage.purchases = JSON.stringify(purchases);
-            $("#object").text(JSON.stringify(purchases));
-          }
-</script>
     <input id="amount" type="text">
     <input id="category" type="text">
     <p id="object"></p>
-    <p onclick="saveData()">Save Data</p>
+    <p id="saveDataP">Save Data</p>
 </body>
 </html>
