@@ -1,14 +1,17 @@
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style>
+.third {
+    width: 33%;
+    display: inline-block;
+}
+</style>
 <script>
 $(document).ready(function() {
         var obj = {};
-        var purchases;
-        if(!localStorage.purchases){
-          purchases = [];
-          localStorage.purchases = "";
-        } else {
+        var purchases = [];
+        if(localStorage.purchases){
           purchases = $.parseJSON(localStorage.purchases);
         }
 
@@ -16,18 +19,26 @@ $(document).ready(function() {
           obj.user = "benji";
           obj.amount = $("#amount").val();
           obj.category = $("#category").val();
+          obj.timestamp = new Date();
           purchases.push(obj);
           localStorage.purchases = JSON.stringify(purchases);
           $("#object").text(JSON.stringify(purchases));
+          showData();
         });
-
+        window.showData = function() {
+          $("#saveDataDiv").empty();
+          $.each(JSON.parse(localStorage.purchases), function( i, v ) {
+            $("#saveDataDiv").append("<div><span class='third'>"+ v.amount + "</span><span class='third'>"+ v.category + "</span><span class='third'>"+ v.timestamp + "</span></div>");
+          });
+        }
+        showData();
   });
 </script>
 </head>
 <body>
     <input id="amount" type="text">
     <input id="category" type="text">
-    <p id="object"></p>
     <p id="saveDataP">Save Data</p>
+    <div id="saveDataDiv"></div>
 </body>
 </html>
