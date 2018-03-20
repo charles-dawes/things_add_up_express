@@ -76,7 +76,6 @@ function getUserById(req, res, next){
 
   //POST
 function createUser(req, res, next){
-  //console.log(req.body.firstName);
   let firstName = req.body.firstName;
   let lastName = req.body.lastName;
   let hashedPassword = hashString(req.body.password);
@@ -108,10 +107,5 @@ function hashString(value){
 function genToken(value){
   return jwt.sign(value,  Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15))
 }
-
-function doesUserExist(number){
-
-}
-
 
 module.exports = router;

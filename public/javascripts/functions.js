@@ -12,7 +12,7 @@ $(document).ready(function(){
         startSlide: 7,
         direction: 'horizontal'
     })
-    mySwiper.slideTo(6, 0, false);
+    //mySwiper.slideTo(6, 0, false);
     //
     // $.get("http://18.188.24.223:8888/users/get/"+localStorage.token, function(data){
     //   $("#loader").hide();
@@ -27,6 +27,7 @@ $(document).ready(function(){
     $("#loader").hide();
   }
 
+  navigator.serviceWorker.register('/javascripts/sw.js');
 
 })
 

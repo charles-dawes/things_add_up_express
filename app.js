@@ -13,7 +13,7 @@ var register = require('./routes/register');
 
 
 //api routers
-var rootApi = require('./routes/api/v1.js');
+var apiv1 = require('./routes/api/v1.js');
 
 
 var app = express();
@@ -38,7 +38,7 @@ app.use('/register', register);
 
 
 //api declerations
-app.use('/api', rootApi);
+app.use('/api', apiv1);
 
 
 // catch 404 and forward to error handler
@@ -47,6 +47,7 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
 
 // error handler
 app.use(function(err, req, res, next) {
