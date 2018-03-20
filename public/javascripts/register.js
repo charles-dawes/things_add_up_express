@@ -24,7 +24,7 @@ $("#btnSubmit").on('click', function(e){
           password: confPassword,
           phoneNumber: phoneNumber
         }
-        $.post('http://localhost:3000/api/post/create/user', data, function(result){
+        $.post('https://thingsaddup.herokuapp.com/api/post/create/user', data, function(result){
           console.log(result.created);
           if (result.created === true){
             toastr.options.onHidden = function(){window.location.href='http://localhost:3000';}

@@ -1,7 +1,7 @@
 {
     "name": "ThingsAddUp",
     "short_name": "ThingsAddUp",
-    "start_url":"https://thingsaddup.herokuapp.com",
+    "start_url":"http://localhost:3000",
     "icons": [
         {
             "src": "/images/favicon/android-chrome-192x192.png",
